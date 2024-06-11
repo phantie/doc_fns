@@ -1,8 +1,8 @@
 from pypdf import PdfReader, PageObject
-from typing import Generator, Sequence
+from typing import Iterator, Sequence
 
 
-def page_subset(reader: PdfReader, subset: Sequence[int]) -> Generator[PageObject, None, None]:
+def page_subset(reader: PdfReader, subset: Sequence[int]) -> Iterator[PageObject]:
     """
     Generates a subset of pages from a PDF reader based on the provided page indices.
     
