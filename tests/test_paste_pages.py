@@ -1,13 +1,12 @@
-import pytest
 import doc_fns
 from pypdf import PdfReader
 import tempfile
 import os
 
-def test_paste_translated_pages():
+def test_paste_pages():
     original = PdfReader("pdfs/ai/original.pdf")
     translated_pages = PdfReader("pdfs/ai/translated_pages.pdf")
-    writer = doc_fns.paste_translated_pages(original, translated_pages, [0, 1, 2])
+    writer = doc_fns.paste_pages(original, translated_pages, [0, 1, 2])
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_file_path = os.path.join(temp_dir, "with_pasted_translated_pages.pdf")

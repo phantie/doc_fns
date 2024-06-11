@@ -4,7 +4,7 @@ Import:
 
     from doc_fns import (
         page_subset,
-        paste_translated_pages,
+        paste_pages,
         writer_from_page_iterable,
     )
 
