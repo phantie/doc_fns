@@ -33,6 +33,9 @@ def page_subset(reader: PdfReader, subset: Sequence[int]) -> Iterator[PageObject
 
     assert max(subset) < len(reader.pages)
 
-    return map(lambda page_number_page: page_number_page[1], 
-        filter(lambda page_number_page: page_number_page[0] in subset,
-        enumerate(reader.pages)))
+    def generator():
+        for (page_number, page) in enumerate(reader.pages):
+            if page_number in subset:
+                yield page
+    
+    return generator()
